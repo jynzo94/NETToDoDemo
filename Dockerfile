@@ -5,7 +5,7 @@ EXPOSE 443
 # comment
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["NETToDoDemo.csproj", "NETToDoDemo/"]
+COPY ["/NETToDoDemo.csproj", "NETToDoDemo/"]
 RUN dotnet restore "/NETToDoDemo.csproj"
 COPY . .
 WORKDIR "/src/NETToDoDemo"
