@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-# comment
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["/NETToDoDemo.csproj", "/"]
-RUN dotnet restore "/NETToDoDemo.csproj"
+COPY ["NETToDoDemo/NETToDoDemo.csproj", "NETToDoDemo/"]
+RUN dotnet restore "NETToDoDemo/NETToDoDemo.csproj"
 COPY . .
 WORKDIR "/src/NETToDoDemo"
 RUN dotnet build "NETToDoDemo.csproj" -c Release -o /app/build
